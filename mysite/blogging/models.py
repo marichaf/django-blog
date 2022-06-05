@@ -2,6 +2,7 @@ from cgi import test
 from cgitb import text
 from multiprocessing import AuthenticationError
 from turtle import title
+from unicodedata import category
 from django.db import models
 from django.contrib.auth.models import User
 
@@ -18,6 +19,7 @@ class Post(models.Model):
     published_date = models.DateTimeField(blank=True, null=True) # allowing null is how we can tell it hasn't been published yet
         # it's how we're going to say whether or not it should be viewable publicly.
     # in my attempt I only had DateField, not DateTimeField, I'm assuming adding the time puts the timestamp in addition to date stamp...
+
 
     def __str__(self):
         return self.title
